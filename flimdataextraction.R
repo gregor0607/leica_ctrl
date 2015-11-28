@@ -26,3 +26,15 @@ write.csv(datamerged, file=paste(fname, "csv", sep="."))
 write.xlsx(datamerged, file=paste(fname, "xlsx", sep="."))
 }
 
+#function to delete outliers
+
+outoutliers <- function (df, x=6){
+
+    if(!("outliers" %in% installed.packages())) {install.packages("outliers")}
+        else require(outliers)
+    if(!("dplyr" %in% installed.packages())) {install.packages("dplyr")}
+    else require(dplyr)
+
+outliers <- scores(df[,x], type="z", prob=.95)
+dplyr::filter(df, !outliers)
+}
