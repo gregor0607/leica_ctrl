@@ -28,18 +28,19 @@ write.xlsx(datamerged, file=paste(fname, "xlsx", sep="."))
 
 #function to delete outliers
 
-outoutliers <- function (df, x=6){
+outoutliers <- function (df, x=6, p=.95){
 
     if(!("outliers" %in% installed.packages())) {install.packages("outliers")}
         else require(outliers)
     if(!("dplyr" %in% installed.packages())) {install.packages("dplyr")}
     else require(dplyr)
 
-outliers <- scores(df[,x], type="z", prob=.95)
+outliers <- scores(df[,x], type="z", prob=p)
 
 newdf <- dplyr::filter(df, !outliers)
 
-message(cat("The outliers are (with 95% confidence):\n", df[outliers, x], "\n",
+message(cat("The outliers for", p*100 ,"% confidence interval are:\n", 
+            df[outliers, x], "\n",
             rep("-", 20)), "\n", 
             "The mean and median with outliers are respectively: ", 
             round(mean(df[,x]), 2), " ; ", median(df[,x]), "\n",
