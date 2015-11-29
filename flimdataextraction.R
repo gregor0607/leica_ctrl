@@ -36,5 +36,14 @@ outoutliers <- function (df, x=6){
     else require(dplyr)
 
 outliers <- scores(df[,x], type="z", prob=.95)
-dplyr::filter(df, !outliers)
+
+newdf <- dplyr::filter(df, !outliers)
+
+message(cat("The outliers are (with 95% confidence):\n", df[outliers, x], "\n",
+            rep("-", 20)), "\n", 
+            "The mean and median with outliers are respectively: ", 
+            round(mean(df[,x]), 2), " ; ", median(df[,x]), "\n",
+            "The mean and median without outliers are respectively: ", 
+            round(mean(newdf[,x]), 2), " ; " ,median(newdf[,x]))
+return(newdf)
 }
