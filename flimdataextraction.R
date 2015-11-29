@@ -48,3 +48,17 @@ message(cat("The outliers for", p*100 ,"% confidence interval are:\n",
             round(mean(newdf[,x]), 2), " ; " ,median(newdf[,x]))
 return(newdf)
 }
+
+#simple function to extract and compare two sets of data (donor and from FLIM). means of variable are compared
+
+compare <- function(donor, FLIM){
+    
+    data <- data.frame(amp_1 = c(mean(donor$amp_1, na.rm = T), mean(FLIM$amp_1)), 
+                       lft_1 = c(mean(donor$lft_1, na.rm = T), mean(FLIM$lft_1)), 
+                       amp_2 = c(mean(donor$amp_2, na.rm = T), mean(FLIM$amp_2)), 
+                       lft_2 = c(mean(donor$lft_2, na.rm = T), mean(FLIM$lft_2)),
+                       tau_amp = c(mean(donor$tau_amp), mean(FLIM$tau_amp)),
+                       row.names = c(substitute(donor), substitute(FLIM)))
+    print((t.test(donor$tau_amp, FLIM$tau_amp)))
+    return(data)
+}
