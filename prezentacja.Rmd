@@ -1,0 +1,36 @@
+---
+title: 'Wyniki: beta-3 i beta-1'
+author: "Jan Gregrowicz"
+date: "1 grudnia 2015"
+output: slidy_presentation
+---
+
+## Uporządkowanie danych dla donora: *alfa-s-mCitrine*
+
+Odrzucenie danych o skrajnie odstających czasach życia (1<lft1<3, 2<lft2<4). Uzupelnienie brakujących wartosci przy dopasowaniach monoeksponencjalnych. Brakujące wartosci zastapiono 21 wartosciami wygenerowanymi pseudolosowo, z rozkladu normalnego o sredniej 1.75 i odchyleniu standardowym 0.25. Uzyskane wartosci:
+
+```{r, echo=FALSE, cache = TRUE}
+donor <- readRDS("./data/alfa_S_mCitrine_donor_filtered.rds")
+rnum <- donor$lft_1[is.na(donor[,2])]
+print(rnum)
+summary(rnum)
+```
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Code and Output
+
+```{r}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r, echo=FALSE}
+plot(cars)
+```
+

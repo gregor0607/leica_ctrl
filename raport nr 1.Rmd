@@ -5,7 +5,51 @@ date: "1 grudnia 2015"
 output: html_document
 ---
 
-###Uporządkowanie danych dla donora: *alfa-s+mCitrine*
+###Uporządkowanie danych dla donora: *alfa-s-mCitrine*
 
-Filtrowanie 
+####Odrzucenie danych o skrajnie odstających czasach życia (1<lft_1<3, 2<lft_2<4). Uzupelnienie brakujących wartosci przy dopasowaniach monoeksponencjalnych. Brakujące wartosci zastapiono 21 wartosciami wygenerowanymi pseudolosowo, z rozkladu normalnego o sredniej 1.75 i odchyleniu standardowym 0.25. Uzyskane wartosci:
+
+```{r, echo=FALSE, cache = TRUE}
+donor <- readRDS("./data/alfa_S_mCitrine_donor_filtered.rds")
+rnum <- donor$lft_1[is.na(donor[,2])]
+print(rnum)
+summary(rnum)
+```
+
+####Podsumowanie danych dla donora:
+```{r, echo=FALSE}
+summary(donor)
+```
+
+####Odchylenie standardowe czasów życia: `r round(sd(donor$tau_amp), 3)`
+
+###Porównanie z wyników z beta-3-mCherry
+
+####Przed porównaniem srednich czasów życia fluorescencji donora bez i z akceptorem usunięto wyniki mieszczące się poza 99% poziomem ufnosci. 
+
+```{r, echo=FALSE, cache=TRUE}
+outoutliers <- function (df, x=6, p=.95){
+
+    if(!("outliers" %in% installed.packages())) {install.packages("outliers")}
+        else require(outliers)
+    if(!("dplyr" %in% installed.packages())) {install.packages("dplyr")}
+    else require(dplyr)
+
+outliers <- scores(df[,x], type="z", prob=p)
+
+newdf <- dplyr::filter(df, !outliers)
+
+message(cat("The outliers for", p*100 ,"% confidence interval are:\n", 
+            df[outliers, x], "\n",
+            rep("-", 20)), "\n", 
+            "The mean and median with outliers are respectively: ", 
+            round(mean(df[,x]), 2), " ; ", median(df[,x]), "\n",
+            "The mean and median without outliers are respectively: ", 
+            round(mean(newdf[,x]), 2), " ; " ,median(newdf[,x]))
+return(newdf)
+}
+
+donorout <- outoutliers(donor, x=6, p=.99)
+```
+
 
