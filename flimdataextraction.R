@@ -1,15 +1,17 @@
 saveflim <- function(fname, dir){
     
     #function to extract information from a file
+    
     extract <- function(filename){
-        amplif <- scan(filename, skip=1, nlines=4, what="numeric")
-        time <- scan(filename, skip=10, nline=1, what="numeric")
+        scanneddata <- scan(filename, skip=1, what="numeric")
+        s <- seq(34, length(scanneddata), 5)
         
-        data <- data.frame(amp_1 = as.numeric(amplif[3]),
-                           lft_1 = as.numeric(amplif[6]),
-                           amp_2 = as.numeric(amplif[9]),
-                           lft_2 = as.numeric(amplif[12]),
-                           tau_amp = as.numeric(time[2]))}
+        if (max(as.numeric(scanneddata[s]))>9750){
+        data <- data.frame(amp_1 = as.numeric(scanneddata[3]),
+                           lft_1 = as.numeric(scanneddata[6]),
+                           amp_2 = as.numeric(scanneddata[9]),
+                           lft_2 = as.numeric(scanneddata[12]),
+                           tau_amp = as.numeric(scanneddata[22]))}}
     
     #opening files and applying extract function
         files_list <- list.files(dir, pattern="\\.dat")  
