@@ -69,13 +69,16 @@ img {
 
 <div id="uporzadkowanie-danych-dla-donora-alfa-s-mcitrine" class="section level3">
 <h3>Uporządkowanie danych dla donora: <em>alfa-s-mCitrine</em></h3>
-<p>Odrzucenie danych o skrajnie odstających czasach życia (1&lt;lft_1&lt;3, 2&lt;lft_2&lt;4). Uzupelnienie brakujących wartosci przy dopasowaniach monoeksponencjalnych. Brakujące wartosci zastapiono 21 wartosciami wygenerowanymi pseudolosowo, z rozkladu normalnego o sredniej 1.75 i odchyleniu standardowym 0.25. Uzyskane wartosci:</p>
+<div id="odrzucenie-danych-o-skrajnie-odstajacych-czasach-zycia-1lft_13-2lft_24.-uzupelnienie-brakujacych-wartosci-przy-dopasowaniach-monoeksponencjalnych.-brakujace-wartosci-zastapiono-21-wartosciami-wygenerowanymi-pseudolosowo-z-rozkladu-normalnego-o-sredniej-1.75-i-odchyleniu-standardowym-0.25.-uzyskane-wartosci" class="section level4">
+<h4>Odrzucenie danych o skrajnie odstających czasach życia (1&lt;lft_1&lt;3, 2&lt;lft_2&lt;4). Uzupelnienie brakujących wartosci przy dopasowaniach monoeksponencjalnych. Brakujące wartosci zastapiono 21 wartosciami wygenerowanymi pseudolosowo, z rozkladu normalnego o sredniej 1.75 i odchyleniu standardowym 0.25. Uzyskane wartosci:</h4>
 <pre><code>##  [1] 2.174721 1.551352 1.837109 1.183650 1.709449 2.032716 1.636114
 ##  [8] 1.525208 1.931710 1.547640 1.816771 1.315684 1.397144 1.636612
 ## [15] 1.491127 2.090536 1.979364 1.553714 1.893380 1.979549 1.814072</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   1.184   1.548   1.709   1.719   1.932   2.175</code></pre>
-<p>Podsumowanie danych dla donora:</p>
+</div>
+<div id="podsumowanie-danych-dla-donora" class="section level4">
+<h4>Podsumowanie danych dla donora:</h4>
 <pre><code>##                      samples       amp_1             lft_1      
 ##  alfa_S_mCitrine_donor_10: 1   Min.   :  462.5   Min.   :1.074  
 ##  alfa_S_mCitrine_donor_11: 1   1st Qu.: 1907.1   1st Qu.:1.702  
@@ -92,7 +95,34 @@ img {
 ##  3rd Qu.: 49566   3rd Qu.:3.324   3rd Qu.:3.060  
 ##  Max.   :450838   Max.   :3.884   Max.   :3.090  
 ## </code></pre>
-<p>Odchylenie standardowe czasów życia: 0.0699932</p>
+</div>
+<div id="odchylenie-standardowe-czasow-zycia-0.07" class="section level4">
+<h4>Odchylenie standardowe czasów życia: 0.07</h4>
+</div>
+</div>
+<div id="porownanie-z-wynikow-z-beta-3-mcherry" class="section level3">
+<h3>Porównanie z wyników z beta-3-mCherry</h3>
+<div id="przed-porownaniem-srednich-czasow-zycia-fluorescencji-donora-bez-i-z-akceptorem-usunieto-wyniki-mieszczace-sie-poza-99-poziomem-ufnosci." class="section level4">
+<h4>Przed porównaniem srednich czasów życia fluorescencji donora bez i z akceptorem usunięto wyniki mieszczące się poza 99% poziomem ufnosci.</h4>
+<pre><code>## Loading required package: outliers
+## Loading required package: dplyr
+## 
+## Attaching package: 'dplyr'
+## 
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+## 
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre><code>## The outliers for 99 % confidence interval are:
+##  2.53 2.84 
+##  - - - - - - - - - - - - - - - - - - - -</code></pre>
+<pre><code>## 
+## The mean and median with outliers are respectively: 3.03 ; 3.04
+## The mean and median without outliers are respectively: 3.04 ; 3.04</code></pre>
+</div>
 </div>
 
 
