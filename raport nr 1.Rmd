@@ -3,11 +3,36 @@ title: "Wyniki beta-3 oraz beta-1"
 author: "Jan Gregrowicz"
 date: "1 grudnia 2015"
 output: html_document
+self_contained: no
 ---
+<!--rmarkdown v1 -->
+```{r, echo=FALSE}
+library(knitr)
+```
 
-###UporzÄ…dkowanie danych dla donora: *alfa-s-mCitrine*
+##Wyniki sekwencjonowania
+###Kolonia 1:
+<div style="width:700px; height:450px">
+![beta 1 kolonia 1](beta1kol1.jpg)
+</div>
 
-####Odrzucenie danych o skrajnie odstajÄ…cych czasach Å¼ycia (1<lft_1<3, 2<lft_2<4). Uzupelnienie brakujÄ…cych wartosci przy dopasowaniach monoeksponencjalnych. BrakujÄ…ce wartosci zastapiono 21 wartosciami wygenerowanymi pseudolosowo, z rozkladu normalnego o sredniej 1.75 i odchyleniu standardowym 0.25. Uzyskane wartosci:
+***
+
+###Kolonia 2:
+<div style="width:700px; height:450px">
+![beta 1 kolonia 2](beta1 kol2.jpg)
+</div>
+
+***
+
+###Kolonia 3:
+<div style="width:700px; height:450px">
+![beta 3](beta3.jpg)
+</div>
+
+###Uporz¹dkowanie danych dla donora: *alfa-s-mCitrine*
+
+####Odrzucenie danych o skrajnie odstaj¹cych czasach ¿ycia (1<lft_1<3, 2<lft_2<4). Uzupelnienie brakuj¹cych wartosci przy dopasowaniach monoeksponencjalnych. Brakuj¹ce wartosci zastapiono 21 wartosciami wygenerowanymi pseudolosowo, z rozkladu normalnego o sredniej 1.75 i odchyleniu standardowym 0.25. Uzyskane wartosci:
 
 ```{r, echo=FALSE, cache = TRUE}
 donor <- readRDS("./data/alfa_S_mCitrine_donor_filtered.rds")
@@ -21,19 +46,19 @@ summary(rnum)
 summary(donor)
 ```
 
-####Odchylenie standardowe czasÃ³w Å¼ycia: `r round(sd(donor$tau_amp), 3)`
+####Odchylenie standardowe czasów ¿ycia: `r round(sd(donor$tau_amp), 3)`
 
 ***
 
-###PorÃ³wnanie wynikÃ³w (z akceptorem: beta-3-mCherry)
+###Porównanie wyników (z akceptorem: beta-3-mCherry)
 
-####Dane dla pomiarÃ³w z beta-3-mCherry i gamma2:
+####Dane dla pomiarów z beta-3-mCherry i gamma2:
 ```{r, echo=FALSE, cache=TRUE}
 akceptor <- readRDS("./data/alfa-s_mCitrine_gamma2_beta3-mCherry.rds")
 summary(akceptor)
 ```
 ***
-####Przed porÃ³wnaniem srednich czasÃ³w Å¼ycia fluorescencji donora bez i z akceptorem usuniÄ™to wyniki mieszczÄ…ce siÄ™ poza 99% poziomem ufnosci. 
+####Przed porównaniem srednich czasów ¿ycia fluorescencji donora bez i z akceptorem usuni¹to wyniki mieszcz¹ce siê poza 99% poziomem ufnosci. 
 ####Dla samego donora:
 
 ```{r, echo=FALSE, cache=TRUE}
@@ -66,7 +91,7 @@ donorout <- outoutliers(donor, x=6, p=.99)
 akceptorout <- outoutliers(akceptor, x=5, p=.99)
 ```
 
-####Test na statystycznie istotnÄ… rÃ³Å¼nicÄ™ miÄ™dzy srednimi czasami Å¼ycia:
+####Test na statystycznie istotn¹ ró¿nic¹ miêdzy srednimi czasami ¿ycia:
 ```{r, echo=FALSE, cache=TRUE}
 compare <- function(donor, FLIM){
     
