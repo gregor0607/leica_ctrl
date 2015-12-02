@@ -98,30 +98,66 @@ img {
 </div>
 <div id="odchylenie-standardowe-czasow-zycia-0.07" class="section level4">
 <h4>Odchylenie standardowe czasów życia: 0.07</h4>
+<hr />
 </div>
 </div>
-<div id="porownanie-z-wynikow-z-beta-3-mcherry" class="section level3">
-<h3>Porównanie z wyników z beta-3-mCherry</h3>
+<div id="porownanie-wynikow-z-akceptorem---beta-3-mcherry" class="section level3">
+<h3>Porównanie wyników (z akceptorem - beta-3-mCherry)</h3>
+<div id="dane-dla-pomiarow-z-beta-3-mcherry-i-gamma2" class="section level4">
+<h4>Dane dla pomiarów z beta-3-mCherry i gamma2:</h4>
+<pre><code>##      amp_1           lft_1           amp_2             lft_2      
+##  Min.   : 1438   Min.   :1.364   Min.   :  373.8   Min.   :1.268  
+##  1st Qu.: 3597   1st Qu.:2.087   1st Qu.: 7308.0   1st Qu.:2.633  
+##  Median : 7052   Median :2.709   Median :11174.8   Median :3.167  
+##  Mean   : 9393   Mean   :2.758   Mean   :11327.7   Mean   :2.927  
+##  3rd Qu.:14768   3rd Qu.:3.279   3rd Qu.:13765.8   3rd Qu.:3.283  
+##  Max.   :22275   Max.   :4.724   Max.   :29005.3   Max.   :5.791  
+##     tau_amp     
+##  Min.   :2.870  
+##  1st Qu.:2.960  
+##  Median :2.980  
+##  Mean   :2.973  
+##  3rd Qu.:2.990  
+##  Max.   :3.030</code></pre>
+<hr />
+</div>
 <div id="przed-porownaniem-srednich-czasow-zycia-fluorescencji-donora-bez-i-z-akceptorem-usunieto-wyniki-mieszczace-sie-poza-99-poziomem-ufnosci." class="section level4">
 <h4>Przed porównaniem srednich czasów życia fluorescencji donora bez i z akceptorem usunięto wyniki mieszczące się poza 99% poziomem ufnosci.</h4>
-<pre><code>## Loading required package: outliers
-## Loading required package: dplyr
-## 
-## Attaching package: 'dplyr'
-## 
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-## 
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union</code></pre>
+</div>
+<div id="dla-samego-donora" class="section level4">
+<h4>Dla samego donora:</h4>
 <pre><code>## The outliers for 99 % confidence interval are:
 ##  2.53 2.84 
 ##  - - - - - - - - - - - - - - - - - - - -</code></pre>
 <pre><code>## 
 ## The mean and median with outliers are respectively: 3.03 ; 3.04
 ## The mean and median without outliers are respectively: 3.04 ; 3.04</code></pre>
+</div>
+<div id="dla-donora-i-akceptora" class="section level4">
+<h4>Dla donora i akceptora:</h4>
+<pre><code>## The outliers for 99 % confidence interval are:
+##  2.87 2.87 
+##  - - - - - - - - - - - - - - - - - - - -</code></pre>
+<pre><code>## 
+## The mean and median with outliers are respectively: 2.97 ; 2.98
+## The mean and median without outliers are respectively: 2.98 ; 2.98</code></pre>
+</div>
+<div id="test-na-statystycznie-istotna-roznice-miedzy-srednimi-czasami-zycia" class="section level4">
+<h4>Test na statystycznie istotną różnicę między srednimi czasami życia:</h4>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  donor$tau_amp and FLIM$tau_amp
+## t = 10.18, df = 68.862, p-value = 2.278e-15
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.04801158 0.07141699
+## sample estimates:
+## mean of x mean of y 
+##  3.038857  2.979143</code></pre>
+<pre><code>##                 amp_1    lft_1    amp_2    lft_2  tau_amp
+## donorout    10087.507 2.074023 54526.34 3.252000 3.038857
+## akceptorout  9674.346 2.820800 11043.14 2.913914 2.979143</code></pre>
 </div>
 </div>
 

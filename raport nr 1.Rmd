@@ -23,16 +23,18 @@ summary(donor)
 
 ####Odchylenie standardowe czasów życia: `r round(sd(donor$tau_amp), 3)`
 
-###Porównanie wyników (z akceptorem - beta-3-mCherry)
+***
+
+###Porównanie wyników (z akceptorem: beta-3-mCherry)
 
 ####Dane dla pomiarów z beta-3-mCherry i gamma2:
 ```{r, echo=FALSE, cache=TRUE}
 akceptor <- readRDS("./data/alfa-s_mCitrine_gamma2_beta3-mCherry.rds")
 summary(akceptor)
 ```
-
+***
 ####Przed porównaniem srednich czasów życia fluorescencji donora bez i z akceptorem usunięto wyniki mieszczące się poza 99% poziomem ufnosci. 
-####Dla samego donora
+####Dla samego donora:
 
 ```{r, echo=FALSE, cache=TRUE}
 outoutliers <- function (df, x=6, p=.95){
@@ -59,12 +61,12 @@ return(newdf)
 donorout <- outoutliers(donor, x=6, p=.99)
 ```
 
-####Dla donora i akceptora
+####Dla donora i akceptora:
 ```{r, echo=FALSE, cache=TRUE}
 akceptorout <- outoutliers(akceptor, x=5, p=.99)
 ```
 
-####Test na statystycznie istotną różnicę między srednimi czasami życia
+####Test na statystycznie istotną różnicę między srednimi czasami życia:
 ```{r, echo=FALSE, cache=TRUE}
 compare <- function(donor, FLIM){
     
@@ -78,5 +80,5 @@ compare <- function(donor, FLIM){
     return(data)
 }
 
-compare(donor, akceptor)
+compare(donorout, akceptorout)
 ```
