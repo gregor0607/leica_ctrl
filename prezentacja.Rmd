@@ -10,7 +10,6 @@ output:
   fig_caption: yes
 self_contained: no
 ---
-<!--rmarkdown v1 -->
 ## Wyniki sekwencjonowania.
 ###kolonia 1
 ![beta 1 kolonia 1](seqbeta1kol1.jpg)
@@ -108,23 +107,29 @@ compare(donorout, akceptorout)
 ###alfa-s z mCitrine, beta-3 z mCherry:
 ![mCitrine](beta3_1_0.jpg)
 ![mCherry](beta3_1_1.jpg)
+
 ## i solidarnie
 ![mCitrine](beta3_2_0.jpg)
 ![mCherry](beta3_2_1.jpg)
+
 ## i wciąż
 ![mCitrine](beta3_3_0.jpg)
 ![mCherry](beta3_3_1.jpg)
+
 ## nie swiecilo należycie
 ![mCitrine](beta3_4_0.jpg)
 ![mCherry](beta3_4_1.jpg)
+
 ##Z kolei beta-1 niosla nadzieję
 ![mCitrine](beta1_1_0.jpg)
 ![mCherry](beta1_1_1.jpg)
+
 ##i niosla
 ![mCitrine](beta1_2_0.jpg)
 ![mCherry](beta1_2_1.jpg)
+
 ##ku pokrzepieniu
 ![mCitrine](beta1_3_0.jpg)
-![mCherry](beta1_4_1.jpg)
+![mCherry](beta1_3_1.jpg)
 
 
