@@ -132,4 +132,24 @@ compare(donorout, akceptorout)
 ![mCitrine](beta1_3_0.jpg)
 ![mCherry](beta1_3_1.jpg)
 
+##Porównanie wyników (z akceptorem: beta-1-mCherry)
 
+####Dane dla pomiarów z beta-1-mCherry i gamma2:
+```{r, echo=FALSE, cache=TRUE}
+akceptorbeta1 <- readRDS("./data/alfa-s_mCitrine_gamma2_beta1-mCherry.rds")
+summary(akceptorbeta1)
+```
+
+##Usunięcie danych odstających:
+```{r, echo=FALSE, cache=TRUE}
+akceptorbeta1out <- outoutliers(akceptorbeta1, x=5, p=.99)
+```
+
+##Test t Welcha na statystycznie istotną różnicą między srednimi czasami życia:
+```{r, echo=FALSE, cache=TRUE}
+compare(donorout, akceptorbeta1out)
+```
+
+###Transfer energii: `r round((1 - (mean(akceptorbeta1out$tau_amp)/mean(donorout$tau_amp)))*100, 2)`%
+
+###Ale patrząc na poszczególne czasy życia, nalezy sie zastanowić nad modyfikacją dopasowania.
