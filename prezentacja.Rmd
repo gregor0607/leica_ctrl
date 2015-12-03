@@ -100,3 +100,5 @@ compare <- function(donor, FLIM){
 
 compare(donorout, akceptorout)
 ```
+
+###Transfer energii: `r round((1 - (mean(akceptorout$tau_amp)/mean(donorout$tau_amp)))*100, 2)`%
