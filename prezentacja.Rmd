@@ -2,24 +2,25 @@
 title: 'Wyniki: beta-3 i beta-1'
 author: "Jan Gregrowicz"
 date: "1 grudnia 2015"
-output: 
-    slidy_presentation:
-    fig_width: 4
-    fig_height: 3
-    fig_caption: true
+output:
+  slidy_presentation: null
+  fig_height: 3
+  fig_width: 4
+  ioslides_presentation: default
+  fig_caption: yes
 self_contained: no
 ---
+<!--rmarkdown v1 -->
 ## Wyniki sekwencjonowania.
 ###kolonia 1
-![beta 1 kolonia 1](beta1kol1.jpg)
+![beta 1 kolonia 1](seqbeta1kol1.jpg)
 
 ##Kolonia 2:
-![beta 1 kolonia 2](beta1 kol2.jpg)
+![beta 1 kolonia 2](seqbeta1kol2.jpg)
 
 
 ##Kolonia 3:
-![beta 3](beta3.jpg)
-
+![beta 3](seqbeta3.jpg)
 
 
 ## Uporządkowanie danych dla donora: *alfa-s-mCitrine*
@@ -102,3 +103,28 @@ compare(donorout, akceptorout)
 ```
 
 ###Transfer energii: `r round((1 - (mean(akceptorout$tau_amp)/mean(donorout$tau_amp)))*100, 2)`%
+
+##Co z tym transferem?
+###alfa-s z mCitrine, beta-3 z mCherry:
+![mCitrine](beta3_1_0.jpg)
+![mCherry](beta3_1_1.jpg)
+## i solidarnie
+![mCitrine](beta3_2_0.jpg)
+![mCherry](beta3_2_1.jpg)
+## i wciąż
+![mCitrine](beta3_3_0.jpg)
+![mCherry](beta3_3_1.jpg)
+## nie swiecilo należycie
+![mCitrine](beta3_4_0.jpg)
+![mCherry](beta3_4_1.jpg)
+##Z kolei beta-1 niosla nadzieję
+![mCitrine](beta1_1_0.jpg)
+![mCherry](beta1_1_1.jpg)
+##i niosla
+![mCitrine](beta1_2_0.jpg)
+![mCherry](beta1_2_1.jpg)
+##ku pokrzepieniu
+![mCitrine](beta1_3_0.jpg)
+![mCherry](beta1_4_1.jpg)
+
+

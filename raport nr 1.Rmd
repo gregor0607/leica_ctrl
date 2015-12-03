@@ -5,6 +5,7 @@ date: "1 grudnia 2015"
 output: html_document
 self_contained: no
 ---
+<!--rmarkdown v1 -->
 ```{r, echo=FALSE}
 library(knitr)
 ```
