@@ -3,11 +3,12 @@ title: 'Wyniki: beta-3 i beta-1'
 author: "Jan Gregrowicz"
 date: "1 grudnia 2015"
 output:
-  slidy_presentation: null
+  beamer_presentation: default
+  fig_caption: yes
   fig_height: 3
   fig_width: 4
   ioslides_presentation: default
-  fig_caption: yes
+  slidy_presentation: null
 self_contained: no
 ---
 ## Wyniki sekwencjonowania.
