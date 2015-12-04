@@ -3,36 +3,34 @@ title: "Wyniki beta-3 oraz beta-1"
 author: "Jan Gregrowicz"
 date: "1 grudnia 2015"
 output: html_document
+    fig_height: 3
+    fig_width: 4
+    fig_caption: yes
 self_contained: no
 ---
-<!--rmarkdown v1 -->
-```{r, echo=FALSE}
-library(knitr)
-```
-
 ##Wyniki sekwencjonowania
 ###Kolonia 1:
-<div style="width:700px; height:450px">
-![beta 1 kolonia 1](beta1kol1.jpg)
-</div>
 
+![beta 1 kolonia 1](seqbeta1kol1.png)
 ***
 
 ###Kolonia 2:
-<div style="width:700px; height:450px">
-![beta 1 kolonia 2](beta1 kol2.jpg)
-</div>
+
+![beta 1 kolonia 2](seqbeta1kol2.png)
+
 
 ***
 
 ###Kolonia 3:
-<div style="width:700px; height:450px">
-![beta 3](beta3.jpg)
-</div>
+
+![beta 3](seqbeta3nuc.png)
+
+![beta 3](seqbeta3.jpg)
+
 
 ###Uporz¹dkowanie danych dla donora: *alfa-s-mCitrine*
 
-####Odrzucenie danych o skrajnie odstaj¹cych czasach ¿ycia (1<lft_1<3, 2<lft_2<4). Uzupelnienie brakuj¹cych wartosci przy dopasowaniach monoeksponencjalnych. Brakuj¹ce wartosci zastapiono 21 wartosciami wygenerowanymi pseudolosowo, z rozkladu normalnego o sredniej 1.75 i odchyleniu standardowym 0.25. Uzyskane wartosci:
+####Odrzucenie danych o skrajnie odstaj¹cych czasach ¿ycia. Uzupelnienie brakuj¹cych wartosci przy dopasowaniach monoeksponencjalnych. Brakuj¹ce wartosci zastapiono 21 wartosciami wygenerowanymi pseudolosowo, z rozkladu normalnego o sredniej 1.75 i odchyleniu standardowym 0.25. Uzyskane wartosci:
 
 ```{r, echo=FALSE, cache = TRUE}
 donor <- readRDS("./data/alfa_S_mCitrine_donor_filtered.rds")
@@ -107,3 +105,56 @@ compare <- function(donor, FLIM){
 
 compare(donorout, akceptorout)
 ```
+
+###Transfer energii: `r round((1 - (mean(akceptorout$tau_amp)/mean(donorout$tau_amp)))*100, 2)`%
+
+##Co z tym transferem?
+###alfa-s z mCitrine, beta-3 z mCherry:
+![mCitrine](beta3_1_0.jpg)
+![mCherry](beta3_1_1.jpg)
+
+## i solidarnie
+![mCitrine](beta3_2_0.jpg)
+![mCherry](beta3_2_1.jpg)
+
+## i wci¹¿
+![mCitrine](beta3_3_0.jpg)
+![mCherry](beta3_3_1.jpg)
+
+## nie swiecilo nale¿ycie
+![mCitrine](beta3_4_0.jpg)
+![mCherry](beta3_4_1.jpg)
+
+##Z kolei beta-1 niosla nadziejê
+![mCitrine](beta1_1_0.jpg)
+![mCherry](beta1_1_1.jpg)
+
+##i niosla
+![mCitrine](beta1_2_0.jpg)
+![mCherry](beta1_2_1.jpg)
+
+##ku pokrzepieniu
+![mCitrine](beta1_3_0.jpg)
+![mCherry](beta1_3_1.jpg)
+
+##Porównanie wyników (z akceptorem: beta-1-mCherry)
+
+####Dane dla pomiarów z beta-1-mCherry i gamma2:
+```{r, echo=FALSE, cache=TRUE}
+akceptorbeta1 <- readRDS("./data/alfa-s_mCitrine_gamma2_beta1-mCherry.rds")
+summary(akceptorbeta1)
+```
+
+##Usuniêcie danych odstaj¹cych:
+```{r, echo=FALSE, cache=TRUE}
+akceptorbeta1out <- outoutliers(akceptorbeta1, x=5, p=.99)
+```
+
+##Test t Welcha na statystycznie istotn¹ ró¿nic¹ miêdzy srednimi czasami ¿ycia:
+```{r, echo=FALSE, cache=TRUE}
+compare(donorout, akceptorbeta1out)
+```
+
+###Transfer energii: `r round((1 - (mean(akceptorbeta1out$tau_amp)/mean(donorout$tau_amp)))*100, 2)`%
+
+###Ale patrz¹c na poszczególne czasy ¿ycia, nalezy sie zastanowiæ nad modyfikacj¹ dopasowania.
