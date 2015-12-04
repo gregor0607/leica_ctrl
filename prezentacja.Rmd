@@ -12,13 +12,14 @@ self_contained: no
 ---
 ## Wyniki sekwencjonowania.
 ###kolonia 1
-![beta 1 kolonia 1](seqbeta1kol1.jpg)
+![beta 1 kolonia 1](seqbeta1kol1.png)
 
 ##Kolonia 2:
-![beta 1 kolonia 2](seqbeta1kol2.jpg)
+![beta 1 kolonia 2](seqbeta1kol2.png)
 
 
-##Kolonia 3:
+##beta3:
+![beta 3](seqbeta3nuc.png)
 ![beta 3](seqbeta3.jpg)
 
 
